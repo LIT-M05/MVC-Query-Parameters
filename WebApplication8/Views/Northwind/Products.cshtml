@@ -1,0 +1,39 @@
+﻿@using WebApplication8.Models
+@model ProductsAndCatName
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Categories</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+<div class="container" style="margin-top: 40px;">
+    <h2>Products for @Model.CategoryName</h2>
+    <table class="table table-bordered">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Unit Price</th>
+            <th>Units in Stock</th>
+            <th>Quantity Per Unit</th>
+        </tr>
+        @foreach (Product product in Model.Products)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.UnitPrice.ToString("C")</td>
+                <td>@product.UnitsInStock</td>
+                <td>@product.QuantityPerUnit</td>
+            </tr>
+        }
+    </table>
+</div>
+</body>
+</html>
